@@ -1,5 +1,6 @@
 import { axiosPrivate } from "../api";
-import { UserCourse, UserClass, UserHomework } from "../../types/lms/types";
+import { UserCourse, UserClass, UserHomework, CourseDetail } from "../../types/lms/types";
+import { useNavigate } from "@solidjs/router";
 
 export const apiLMS = {
     userCourses: async (): Promise<UserCourse[]> => {
@@ -24,6 +25,15 @@ export const apiLMS = {
         try {
             const response = await axiosPrivate.get("/lms/api/v1/homeworks/");
 
+            return response.data;
+        } catch (error) {
+            throw error;
+        }
+    },
+    getCourse: async (id: string): Promise<CourseDetail> => {
+        const navigate = useNavigate();
+        try {
+            const response = await axiosPrivate.get(`/lms/api/v1/courses/${id}/`);
             return response.data;
         } catch (error) {
             throw error;

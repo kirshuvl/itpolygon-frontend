@@ -8,8 +8,8 @@ import { RegisterScreen } from "../screens/auth/RegisterScreen";
 import { ResetPasswordScreen } from "../screens/auth/ResetPasswordScreen";
 
 import { LMSOutlet } from "../screens/lms/outlet";
-import { LMSDashboard } from "../screens/lms/dashboad";
-
+import { LMSDashboardScreen } from "../screens/lms/dashboad";
+import { CourseDetailScreen } from "../screens/lms/courseDetail";
 import { Error404 } from "../screens/errors/404";
 
 export const AppRoutes = () => {
@@ -25,7 +25,8 @@ export const AppRoutes = () => {
                     <Route path="/" component={HomeScreen} />
                 </Route>
                 <Route path="/lms" component={LMSOutlet}>
-                    <Route path="/" component={LMSDashboard} />
+                    <Route path="/" component={LMSDashboardScreen} />
+                    <Route path="/courses/:id" component={CourseDetailScreen} />
                 </Route>
             </Route>
             <Route path="*" component={Error404} />

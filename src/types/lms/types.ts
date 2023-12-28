@@ -27,3 +27,20 @@ export interface UserHomework {
     course: Course;
     dateTo: Date;
 }
+
+export interface CourseDetail extends Course {
+    topics: Topic[];
+}
+
+export interface Topic {
+    id: number;
+    title: string;
+    lessons: Lesson[];
+}
+
+export interface Lesson {
+    id: number;
+    title: string;
+    closeDate: Date;
+    openDate: Date;
+}

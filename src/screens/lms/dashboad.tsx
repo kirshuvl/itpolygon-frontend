@@ -3,7 +3,7 @@ import { Component } from "solid-js";
 import { CoursesBlock } from "../../components/lms/dashboard/CoursesBlock";
 import { ClassesBlock } from "../../components/lms/dashboard/ClassesBlock";
 import { HomeworksBlock } from "../../components/lms/dashboard/HomeworksBlock";
-export const LMSDashboard: Component = () => {
+export const LMSDashboardScreen: Component = () => {
     return (
         <div class="grid grid-cols-3 gap-4">
             <div class="flex flex-col col-span-2 gap-4">
