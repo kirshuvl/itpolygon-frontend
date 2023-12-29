@@ -1,6 +1,5 @@
 import { axiosPrivate } from "../api";
-import { UserCourse, UserClass, UserHomework, CourseDetail } from "../../types/lms/types";
-import { useNavigate } from "@solidjs/router";
+import { UserCourse, UserClass, UserHomework, CourseDetail, LessonDetail, StepEnroll } from "../../types/lms/types";
 
 export const apiLMS = {
     userCourses: async (): Promise<UserCourse[]> => {
@@ -31,9 +30,28 @@ export const apiLMS = {
         }
     },
     getCourse: async (id: string): Promise<CourseDetail> => {
-        const navigate = useNavigate();
         try {
             const response = await axiosPrivate.get(`/lms/api/v1/courses/${id}/`);
+            return response.data;
+        } catch (error) {
+            throw error;
+        }
+    },
+    getLesson: async (id: string): Promise<LessonDetail> => {
+        try {
+            const response = await axiosPrivate.get(`/lms/api/v1/lessons/${id}/`);
+
+            return response.data;
+        } catch (error) {
+            throw error;
+        }
+    },
+    postStepEnroll: async (id: string): Promise<StepEnroll> => {
+        try {
+            const localData = new FormData();
+            localData.append("step", id);
+            const response = await axiosPrivate.post("lms/api/v1/steps/enroll/", localData);
+
             return response.data;
         } catch (error) {
             throw error;

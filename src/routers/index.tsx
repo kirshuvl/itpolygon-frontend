@@ -10,6 +10,9 @@ import { ResetPasswordScreen } from "../screens/auth/ResetPasswordScreen";
 import { LMSOutlet } from "../screens/lms/outlet";
 import { LMSDashboardScreen } from "../screens/lms/dashboad";
 import { CourseDetailScreen } from "../screens/lms/courseDetail";
+import { LessonOutlet } from "../screens/lms/outlet";
+import { LessonDetail } from "../screens/lms/lessonDetail";
+
 import { Error404 } from "../screens/errors/404";
 
 export const AppRoutes = () => {
@@ -27,6 +30,10 @@ export const AppRoutes = () => {
                 <Route path="/lms" component={LMSOutlet}>
                     <Route path="/" component={LMSDashboardScreen} />
                     <Route path="/courses/:id" component={CourseDetailScreen} />
+                    <Route path="/lessons/:lessonId" component={LessonOutlet}>
+                        <Route path="/" component={LessonDetail} />
+                        <Route path="/steps/:stepId" component={LessonDetail} />
+                    </Route>
                 </Route>
             </Route>
             <Route path="*" component={Error404} />

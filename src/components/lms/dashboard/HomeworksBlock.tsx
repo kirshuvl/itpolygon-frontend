@@ -82,5 +82,5 @@ const HomeworkCardSkeleton: Component = () => {
     );
 };
 const HomeworkCardEmpty: Component = () => {
-    return <div class="flex p-6  w-full bg-blue-400 rounded-lg text-2xl">Занятий нет</div>;
+    return <div class="flex p-6  w-full bg-blue-400 rounded-lg text-2xl">Домашних заданий нет</div>;
 };

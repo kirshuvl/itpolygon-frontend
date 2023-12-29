@@ -4,7 +4,7 @@ import { ButtonRefresh } from "../../_shared/buttons/Button";
 import { UserClass } from "../../../types/lms/types";
 import { A } from "@solidjs/router";
 
-export const ClassesBlock: Component = (props) => {
+export const ClassesBlock: Component = () => {
     const {
         classes: {
             userClasses,

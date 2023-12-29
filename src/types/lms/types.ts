@@ -1,3 +1,5 @@
+import { EditorBlock } from "../editor/types";
+
 export interface Course {
     id: number;
     title: string;
@@ -43,4 +45,27 @@ export interface Lesson {
     title: string;
     closeDate: Date;
     openDate: Date;
+}
+
+export interface LessonDetail extends Lesson {
+    steps: Step[];
+}
+
+export interface Step {
+    id: number;
+    title: string;
+    type: "text" | "video" | "question" | "question_choice" | "problem" | "assignment";
+    userStepEnroll: StepEnroll | null;
+    object: TextStep;
+}
+
+export interface StepEnroll {
+    id: number;
+    createDate: Date;
+    updateDate: Date;
+    status: "PR" | "RP" | "WA" | "OK";
+}
+
+export interface TextStep {
+    description: EditorBlock;
 }
